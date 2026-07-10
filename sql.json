@@ -2,7 +2,97 @@
   "<start>": [["<q>"], ["<q>", "; ", "<q>"]],
 
   "<q>": [
-    ["<sel>"],
+    ["<sel>"],{
+  "<START>": [["<stmt>"], ["<stmt>", "; ", "<stmt>"]],
+
+  "<stmt>": [
+    ["<select>"],
+    ["<insert>"],
+    ["<update>"],
+    ["<delete>"],
+    ["<create>"],
+    ["<drop>"]
+  ],
+
+  "<select>": [
+    ["SELECT ", "<cols>", " FROM ", "<table>"],
+    ["SELECT ", "<cols>", " FROM ", "<table>", " WHERE ", "<cond>"],
+    ["SELECT ", "<cols>", " FROM ", "<table>", " ", "<join>"],
+    ["SELECT ", "<cols>", " FROM ", "<table>", " ORDER BY ", "<col>", " ", "<order>"],
+    ["SELECT ", "<cols>", " FROM ", "<table>", " GROUP BY ", "<col>"],
+    ["SELECT ", "<cols>", " FROM ", "<table>", " LIMIT ", "<num>"],
+    ["SELECT DISTINCT ", "<cols>", " FROM ", "<table>"]
+  ],
+
+  "<insert>": [
+    ["INSERT INTO ", "<table>", " VALUES (", "<vals>", ")"],
+    ["INSERT INTO ", "<table>", " (", "<cols>", ") VALUES (", "<vals>", ")"]
+  ],
+
+  "<update>": [
+    ["UPDATE ", "<table>", " SET ", "<col>", " = ", "<val>"],
+    ["UPDATE ", "<table>", " SET ", "<col>", " = ", "<val>", " WHERE ", "<cond>"]
+  ],
+
+  "<delete>": [
+    ["DELETE FROM ", "<table>"],
+    ["DELETE FROM ", "<table>", " WHERE ", "<cond>"]
+  ],
+
+  "<create>": [
+    ["CREATE TABLE ", "<table>", " (", "<coldefs>", ")"],
+    ["CREATE TABLE IF NOT EXISTS ", "<table>", " (", "<coldefs>", ")"]
+  ],
+
+  "<drop>": [
+    ["DROP TABLE ", "<table>"],
+    ["DROP TABLE IF EXISTS ", "<table>"]
+  ],
+
+  "<join>": [
+    ["<jointype>", "JOIN ", "<table>", " ON ", "<col>", " = ", "<col>"]
+  ],
+
+  "<jointype>": [["INNER "], ["LEFT "], ["RIGHT "], ["CROSS "]],
+
+  "<cond>": [
+    ["<col>", " ", "<cmp>", " ", "<val>"],
+    ["<col>", " IS NULL"],
+    ["<col>", " IS NOT NULL"],
+    ["<col>", " IN (", "<vals>", ")"],
+    ["<col>", " BETWEEN ", "<val>", " AND ", "<val>"],
+    ["<col>", " LIKE ", "'%test%'"],
+    ["<cond>", " AND ", "<cond>"],
+    ["<cond>", " OR ", "<cond>"]
+  ],
+
+  "<cols>": [
+    ["*"],
+    ["<col>"],
+    ["<col>", ", ", "<col>"],
+    ["<col>", ", ", "<col>", ", ", "<col>"]
+  ],
+
+  "<coldefs>": [
+    ["<col>", " ", "<type>"],
+    ["<col>", " ", "<type>", ", ", "<col>", " ", "<type>"],
+    ["<col>", " ", "<type>", ", ", "<col>", " ", "<type>", ", ", "<col>", " ", "<type>"]
+  ],
+
+  "<vals>": [
+    ["<val>"],
+    ["<val>", ", ", "<val>"],
+    ["<val>", ", ", "<val>", ", ", "<val>"]
+  ],
+
+  "<col>": [["id"], ["name"], ["val"], ["price"], ["cnt"]],
+  "<table>": [["t1"], ["t2"], ["users"], ["orders"]],
+  "<type>": [["INT"], ["BIGINT"], ["FLOAT"], ["DOUBLE"], ["VARCHAR(255)"], ["TEXT"], ["BOOLEAN"]],
+  "<val>": [["1"], ["0"], ["-1"], ["42"], ["3.14"], ["'hello'"], ["NULL"], ["TRUE"]],
+  "<cmp>": [["="], ["<"], [">"], ["<="], [">="], ["<>"], ["!="]],
+  "<num>": [["1"], ["5"], ["10"], ["100"]],
+  "<order>": [["ASC"], ["DESC"]]
+}
     ["<ins>"],
     ["<upd>"],
     ["<del>"],
