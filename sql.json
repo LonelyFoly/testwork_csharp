@@ -1,0 +1,91 @@
+{
+  "<start>": [["<q>"], ["<q>", "; ", "<q>"]],
+
+  "<q>": [
+    ["<sel>"],
+    ["<ins>"],
+    ["<upd>"],
+    ["<del>"],
+    ["<crt>"],
+    ["<drp>"]
+  ],
+
+  "<sel>": [
+    ["SELECT ", "<cc>", " FROM ", "<tb>"],
+    ["SELECT ", "<cc>", " FROM ", "<tb>", " WHERE ", "<wh>"],
+    ["SELECT ", "<cc>", " FROM ", "<tb>", " ", "<jn>"],
+    ["SELECT ", "<cc>", " FROM ", "<tb>", " ORDER BY ", "<c>", " ", "<dir>"],
+    ["SELECT ", "<cc>", " FROM ", "<tb>", " GROUP BY ", "<c>"],
+    ["SELECT ", "<cc>", " FROM ", "<tb>", " LIMIT ", "<n>"],
+    ["SELECT DISTINCT ", "<cc>", " FROM ", "<tb>"]
+  ],
+
+  "<ins>": [
+    ["INSERT INTO ", "<tb>", " VALUES (", "<vv>", ")"],
+    ["INSERT INTO ", "<tb>", " (", "<cc>", ") VALUES (", "<vv>", ")"]
+  ],
+
+  "<upd>": [
+    ["UPDATE ", "<tb>", " SET ", "<c>", " = ", "<v>"],
+    ["UPDATE ", "<tb>", " SET ", "<c>", " = ", "<v>", " WHERE ", "<wh>"]
+  ],
+
+  "<del>": [
+    ["DELETE FROM ", "<tb>"],
+    ["DELETE FROM ", "<tb>", " WHERE ", "<wh>"]
+  ],
+
+  "<crt>": [
+    ["CREATE TABLE ", "<tb>", " (", "<cd>", ")"],
+    ["CREATE TABLE IF NOT EXISTS ", "<tb>", " (", "<cd>", ")"]
+  ],
+
+  "<drp>": [
+    ["DROP TABLE ", "<tb>"],
+    ["DROP TABLE IF EXISTS ", "<tb>"]
+  ],
+
+  "<jn>": [
+    ["<jt>", "JOIN ", "<tb>", " ON ", "<c>", " = ", "<c>"]
+  ],
+
+  "<jt>": [["INNER "], ["LEFT "], ["RIGHT "], ["CROSS "]],
+
+  "<wh>": [
+    ["<c>", " ", "<op>", " ", "<v>"],
+    ["<c>", " IS NULL"],
+    ["<c>", " IS NOT NULL"],
+    ["<c>", " IN (", "<vv>", ")"],
+    ["<c>", " BETWEEN ", "<v>", " AND ", "<v>"],
+    ["<c>", " LIKE ", "'%test%'"],
+    ["<wh>", " AND ", "<wh>"],
+    ["<wh>", " OR ", "<wh>"]
+  ],
+
+  "<cc>": [
+    ["*"],
+    ["<c>"],
+    ["<c>", ", ", "<c>"],
+    ["<c>", ", ", "<c>", ", ", "<c>"]
+  ],
+
+  "<cd>": [
+    ["<c>", " ", "<tp>"],
+    ["<c>", " ", "<tp>", ", ", "<c>", " ", "<tp>"],
+    ["<c>", " ", "<tp>", ", ", "<c>", " ", "<tp>", ", ", "<c>", " ", "<tp>"]
+  ],
+
+  "<vv>": [
+    ["<v>"],
+    ["<v>", ", ", "<v>"],
+    ["<v>", ", ", "<v>", ", ", "<v>"]
+  ],
+
+  "<c>": [["id"], ["name"], ["val"], ["price"], ["cnt"]],
+  "<tb>": [["t1"], ["t2"], ["users"], ["orders"]],
+  "<tp>": [["INT"], ["BIGINT"], ["FLOAT"], ["DOUBLE"], ["VARCHAR(255)"], ["TEXT"], ["BOOLEAN"]],
+  "<v>": [["1"], ["0"], ["-1"], ["42"], ["3.14"], ["'hello'"], ["NULL"], ["TRUE"]],
+  "<op>": [["="], ["<"], [">"], ["<="], [">="], ["<>"], ["!="]],
+  "<n>": [["1"], ["5"], ["10"], ["100"]],
+  "<dir>": [["ASC"], ["DESC"]]
+}
